@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "ng serve",
     "build": "ng build -c development",
     "build:prod": "ng build -c production",
     "build:both": "npm run build && npm run build:prod",
