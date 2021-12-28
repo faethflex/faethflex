@@ -1,7 +1,6 @@
 {
-  "name": "ng-three-template",
+  "name": "faethflex",
   "version": "12.2.0",
-  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

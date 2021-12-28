@@ -7,6 +7,8 @@ import {UiInfobarTopComponent} from './ui/ui-infobar-top/ui-infobar-top.componen
 import {UiSidebarLeftComponent} from './ui/ui-sidebar-left/ui-sidebar-left.component';
 import {UiSidebarRightComponent} from './ui/ui-sidebar-right/ui-sidebar-right.component';
 import {UiComponent} from './ui/ui.component';
+import { AppRoutingModule } from './app-routing.module';
+import { EngineDebugComponent } from './components/engine-debug/engine-debug.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import {UiComponent} from './ui/ui.component';
     UiInfobarBottomComponent,
     UiInfobarTopComponent,
     UiSidebarLeftComponent,
-    UiSidebarRightComponent
+    UiSidebarRightComponent,
+    EngineDebugComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [
