@@ -1,4 +1,5 @@
 ### Hi there 👋
+I just figured out this feature and now I'm flexing it.
 
 <!--
 **faethflex/faethflex** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
