@@ -3,10 +3,9 @@
     display: grid;
     height: 100%;
     grid-template: 
-    "header header header" 1fr
-    "leftSide faethContent rightSide" 10fr
-    "footer footer footer" 1fr
-    / 1fr 10fr 1fr;
+    "header header" 1fr
+    "leftSide faethContent" 11fr
+    / 1fr 11fr;
 }
 
 .faeth-header {
@@ -21,44 +20,17 @@
     grid-area: faethContent;
 }
 
-.faeth-rightSide {
-    grid-area: rightSide;
-}
-
-.faeth-footer {
-    grid-area: footer;
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (orientation: portrait) {
     .core-grid {
         display: grid;
         height: 100%;
         grid-template: 
         "header" 1fr
         "faethContent" 10fr
-        "footer" 1fr
         / 1fr;
     }
 
-    .faeth-header {
-        grid-area: header;
-    }
-    
     .faeth-leftSide {
-        grid-area: leftSide;
         display: none;
-    }
-    
-    .faeth-content {
-        grid-area: faethContent;
-    }
-    
-    .faeth-rightSide {
-        grid-area: rightSide;
-        display: none;
-    }
-    
-    .faeth-footer {
-        grid-area: footer;
     }
 }
