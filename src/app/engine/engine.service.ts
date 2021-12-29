@@ -22,7 +22,7 @@ export class EngineService implements OnDestroy {
     }
   }
 
-  public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
+  public createScene(canvas: ElementRef<HTMLCanvasElement>, engineWrapper: ElementRef<HTMLDivElement>): void {
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = canvas.nativeElement;
 
@@ -31,7 +31,7 @@ export class EngineService implements OnDestroy {
       alpha: true,    // transparent background
       antialias: true // smooth edges
     });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(engineWrapper.nativeElement.offsetWidth, engineWrapper.nativeElement.offsetHeight);
 
     // create the scene
     this.scene = new THREE.Scene();

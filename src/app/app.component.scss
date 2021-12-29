@@ -1,4 +1,5 @@
 .core-grid {
+    text-align: center;
     display: grid;
     height: 100%;
     grid-template: 
@@ -26,4 +27,38 @@
 
 .faeth-footer {
     grid-area: footer;
+}
+
+@media only screen and (max-width: 768px) {
+    .core-grid {
+        display: grid;
+        height: 100%;
+        grid-template: 
+        "header" 1fr
+        "faethContent" 10fr
+        "footer" 1fr
+        / 1fr;
+    }
+
+    .faeth-header {
+        grid-area: header;
+    }
+    
+    .faeth-leftSide {
+        grid-area: leftSide;
+        display: none;
+    }
+    
+    .faeth-content {
+        grid-area: faethContent;
+    }
+    
+    .faeth-rightSide {
+        grid-area: rightSide;
+        display: none;
+    }
+    
+    .faeth-footer {
+        grid-area: footer;
+    }
 }

@@ -1,0 +1,13 @@
+.engine-wrapper {
+    width: 100%;
+    height: 100%;
+    #renderCanvas {
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+  
+    #renderCanvas:focus {
+      outline: none;
+    }
+  }
