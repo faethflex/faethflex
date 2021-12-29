@@ -1,0 +1,29 @@
+.core-grid {
+    display: grid;
+    height: 100%;
+    grid-template: 
+    "header header header" 1fr
+    "leftSide faethContent rightSide" 10fr
+    "footer footer footer" 1fr
+    / 1fr 10fr 1fr;
+}
+
+.faeth-header {
+    grid-area: header;
+}
+
+.faeth-leftSide {
+    grid-area: leftSide;
+}
+
+.faeth-content {
+    grid-area: faethContent;
+}
+
+.faeth-rightSide {
+    grid-area: rightSide;
+}
+
+.faeth-footer {
+    grid-area: footer;
+}

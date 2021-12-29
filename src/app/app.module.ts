@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {EngineComponent} from './engine/engine.component';
 import {UiInfobarBottomComponent} from './ui/ui-infobar-bottom/ui-infobar-bottom.component';
-import {UiInfobarTopComponent} from './ui/ui-infobar-top/ui-infobar-top.component';
+import {FaethHeaderComponent} from './components/faeth-header/faeth-header.component';
 import {UiSidebarLeftComponent} from './ui/ui-sidebar-left/ui-sidebar-left.component';
 import {UiSidebarRightComponent} from './ui/ui-sidebar-right/ui-sidebar-right.component';
 import {UiComponent} from './ui/ui.component';
@@ -16,7 +16,7 @@ import { EngineDebugComponent } from './components/engine-debug/engine-debug.com
     EngineComponent,
     UiComponent,
     UiInfobarBottomComponent,
-    UiInfobarTopComponent,
+    FaethHeaderComponent,
     UiSidebarLeftComponent,
     UiSidebarRightComponent,
     EngineDebugComponent
