@@ -110,6 +110,20 @@ export class AnimationService {
   }
 
   public add3DModelToScene(scene: GenericScene, path: string, $modelLoaded: Subject<any>): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    scene.camera = new THREE.PerspectiveCamera(
+      75, width / height, 0.1, 1000
+    );
+    scene.camera.position.z = 5;
+    scene.scene.add(scene.camera);
+
+    // soft white light
+    scene.light = new THREE.AmbientLight(0x404040);
+    scene.light.position.z = 10;
+    scene.scene.add(scene.light);
+
     const loader = new GLTFLoader();
     const manager = new THREE.LoadingManager();
     manager.onLoad = () => {
