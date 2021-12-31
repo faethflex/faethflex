@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { AnimationService } from 'src/app/engine/animation.service';
-import { GenericScene } from 'src/app/shared/generic-scene.class';
+import { Subject } from 'rxjs';
+import { AnimationService } from 'src/app/components/engine/animation.service';
+import { GenericScene } from 'src/app/components/shared/generic-scene.class';
 import * as THREE from 'three';
 
 @Component({
@@ -14,8 +15,10 @@ export class FaethHeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('headerWrapper', { static: true })
   public headerWrapper: ElementRef<HTMLDivElement>;
   private headerScene: GenericScene;
-  private tsoGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(1, 1, 1);
+  private tsoGeometry: THREE.DodecahedronGeometry = new THREE.DodecahedronGeometry(1, 10);
   public mesh: THREE.Mesh;
+  public $ImageLoaded: Subject<any> = new Subject();
+
 
 
   public constructor(private aniServ: AnimationService) {
@@ -27,12 +30,16 @@ export class FaethHeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.headerScene = new GenericScene(this.headerCanvas, this.headerWrapper);
-    this.aniServ.addImageToScene(this.headerScene, '../assets/tso-logo-64x77.png', this.tsoGeometry, this.mesh)
-    // this.aniServ.animateMesh360(this.headerScene, this.mesh);
+    this.aniServ.addImageToScene(this.headerScene, '../assets/tso-logo-64x77.png', this.tsoGeometry, this.mesh, this.$ImageLoaded);
   }
 
-  public ngOnInit(): void {
 
+  public ngOnInit(): void {
+    this.$ImageLoaded.subscribe((m) => {
+      console.log('done')
+      this.mesh = m;
+      this.aniServ.animateMesh360(this.headerScene, this.mesh)
+    })
   }
 
 }

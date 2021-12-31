@@ -1,12 +1,13 @@
 import { Injectable, NgZone } from '@angular/core';
 import { on } from 'events';
+import { Subject } from 'rxjs';
 import * as THREE from 'three';
 import { Texture } from 'three';
 import { GenericScene } from '../shared/generic-scene.class';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 @Injectable({ providedIn: 'root' })
 export class AnimationService {
-
 
   public constructor(private ngZone: NgZone) { }
 
@@ -32,9 +33,11 @@ export class AnimationService {
   }
 
   public createGreenCube(scene: GenericScene, mesh: THREE.Mesh, path: string): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     scene.camera = new THREE.PerspectiveCamera(
-      75, window.innerWidth / window.innerHeight, 0.1, 1000
+      75, width / height, 0.1, 1000
     );
     scene.camera.position.z = 5;
     scene.scene.add(scene.camera);
@@ -49,10 +52,10 @@ export class AnimationService {
       this.animateMesh360(scene, mesh);
     };
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const geometry = new THREE.DodecahedronGeometry(1, 10);
     // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     const texture = new THREE.TextureLoader(manager).load(path);
-    const material = new THREE.MeshBasicMaterial({ map: texture });
+    const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 1 });
     mesh = new THREE.Mesh(geometry, material);
 
     scene.scene.add(mesh);
@@ -78,9 +81,12 @@ export class AnimationService {
     scene.renderer.setSize(width, height);
   }
 
-  public addImageToScene(scene: GenericScene, path: string, geometry: THREE.BufferGeometry, mesh: THREE.Mesh): void {
+  public addImageToScene(scene: GenericScene, path: string, geometry: THREE.BufferGeometry, mesh: THREE.Mesh, $imageLoaded: Subject<any>): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
     scene.camera = new THREE.PerspectiveCamera(
-      75, window.innerWidth / window.innerHeight, 0.1, 1000
+      75, width / height, 0.1, 1000
     );
     scene.camera.position.z = 5;
     scene.scene.add(scene.camera);
@@ -93,13 +99,31 @@ export class AnimationService {
     const manager = new THREE.LoadingManager();
     manager.onLoad = () => {
       scene.renderer.render(scene.scene, scene.camera);
-      this.animateMesh360(scene, mesh);
+      mesh = new THREE.Mesh(geometry, material);
+      $imageLoaded.next(mesh);
+      scene.scene.add(mesh);
+
     };
 
     const texture = new THREE.TextureLoader(manager).load(path);
-    const material = new THREE.MeshBasicMaterial({ map: texture });
-    mesh = new THREE.Mesh(geometry, material);
+    const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 1 });
+  }
 
-    scene.scene.add(mesh);
+  public add3DModelToScene(scene: GenericScene, path: string, $modelLoaded: Subject<any>): void {
+    const loader = new GLTFLoader();
+    const manager = new THREE.LoadingManager();
+    manager.onLoad = () => {
+      scene.renderer.render(scene.scene, scene.camera);
+      loader.load(path, function (gltf) {
+
+        $modelLoaded.next(gltf);
+        scene.scene.add(gltf.scene);
+
+      }, undefined, function (error) {
+
+        console.error(error);
+
+      });
+    };
   }
 }
