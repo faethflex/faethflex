@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GenericScene } from '../shared/generic-scene.class';
 import { AnimationService } from './animation.service';
 
@@ -7,7 +7,7 @@ import { AnimationService } from './animation.service';
   templateUrl: './engine.component.html',
   styleUrls: ['./engine.component.scss']
 })
-export class EngineComponent implements OnInit, AfterViewInit {
+export class EngineComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('rendererCanvas', { static: true })
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
   @ViewChild('engineWrapper', { static: true })
@@ -28,7 +28,7 @@ export class EngineComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
-
+    console.log('implement')
   }
 
 
