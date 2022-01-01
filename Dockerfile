@@ -3,9 +3,9 @@ FROM node:14.18.2-alpine as build-step
 
 # Installs latest Chromium package.
 RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
-    && echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories \
+    && echo @edge http://dl-cdn.alpinelinux.org/alpine/v3.10/main >> /etc/apk/repositories \
     && apk add --no-cache \
-    chromium@edge \
+    chromium \
     harfbuzz@edge \
     nss@edge \
     freetype@edge \
@@ -34,13 +34,15 @@ RUN npm install
 COPY . .
 
 # Now that / is in the /app working directory, we can build the Angular app and then run test
-RUN npm run build:prod
+RUN npm run build:prod &&\
+  npm run test:docker &&\
+  npm run lint
 
 # Setup web server
 FROM nginx:1.21.5-alpine as prod-stage
 
 # Copy the dist folder that was built by ng build and place it into the html folder our the nginx server, since thats where the default html for nginx lives
-COPY --from=build-step /app/dist/gcp-ci-cd /usr/share/nginx/html
+COPY --from=build-step /app/dist /usr/share/nginx/html
 
 # Expose a port so we can interact with the app (Port 80 is exposed by default, being verbose here)
 EXPOSE 80

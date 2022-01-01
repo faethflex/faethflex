@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ng-dummy'),
+      dir: require('path').join(__dirname, './coverage/faethflex'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -37,7 +37,21 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: [
+      "ChromeHeadlessNoSandbox"
+    ],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: "ChromeHeadless",
+        flags: [
+          "--no-sandbox",
+          // required to run without privileges in Docker
+          "--disable-web-security",
+          "--disable-gpu",
+          "--remote-debugging-port=9222"
+        ]
+      }
+    },
     singleRun: false,
     restartOnFileChange: true
   });

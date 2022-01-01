@@ -108,9 +108,21 @@
               "src/favicon.ico"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ng-three-template"
+  "defaultProject": "ng-three-template",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

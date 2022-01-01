@@ -10,6 +10,7 @@ export class FaethRightAsideComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    console.log('implement')
   }
 
 }

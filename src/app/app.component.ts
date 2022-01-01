@@ -7,5 +7,5 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  webapiurl = environment.webapiurl;
+  //webapiurl = environment.webapiurl;
 }
