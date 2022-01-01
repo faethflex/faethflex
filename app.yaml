@@ -1,20 +1,7 @@
-runtime: python27
-api_version: 1
+runtime: custom
+env: flex
+service: thesacredorder
 threadsafe: true
-handlers:
-- url: /
-  static_files: dist/index.html
-  upload: dist/index.html
-- url: /
-  static_dir: dist
 
-skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - coverage
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+env_variables:
+  API_URL: "https://webapi-dev.appname.com/"

@@ -3,9 +3,9 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
-import packageInfo from 'package.json';
+// import packageInfo from 'package.json';
 
 export const environment = {
   production: false,
-  version: packageInfo.version
+  webapiurl: (window as any)["envconfig"]["apiurl"] || "default"
 };
