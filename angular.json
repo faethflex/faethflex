@@ -121,7 +121,7 @@
       }
     }
   },
-  "defaultProject": "ng-three-template",
+  "defaultProject": "the-sacred-order",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
