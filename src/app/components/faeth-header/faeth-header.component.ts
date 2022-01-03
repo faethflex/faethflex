@@ -29,8 +29,9 @@ export class FaethHeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.headerScene = new GenericScene(this.headerCanvas, this.headerWrapper);
-    this.aniServ.addImageToScene(this.headerScene, '../assets/tso-logo-64x77.png', this.tsoGeometry, this.mesh, this.$ImageLoaded);
+    // this.headerScene = new GenericScene(this.headerCanvas, this.headerWrapper);
+    // this.aniServ.addImageToScene(this.headerScene, '../assets/tso-logo-64x77.png', this.tsoGeometry, this.mesh, this.$ImageLoaded);
+    console.log('done');
   }
 
 

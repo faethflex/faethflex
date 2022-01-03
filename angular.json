@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-three-template": {
+    "the-sacred-order": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -74,14 +74,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-three-template:build"
+            "browserTarget": "the-sacred-order:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-three-template:build:production"
+              "browserTarget": "the-sacred-order:build:production"
             },
             "development": {
-              "browserTarget": "ng-three-template:build:development"
+              "browserTarget": "the-sacred-order:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-three-template:build"
+            "browserTarget": "the-sacred-order:build"
           }
         },
         "test": {
@@ -108,9 +108,21 @@
               "src/favicon.ico"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ng-three-template"
+  "defaultProject": "the-sacred-order",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

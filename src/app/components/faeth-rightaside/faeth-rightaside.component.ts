@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ui-sidebar-right',
+  selector: 'faeth-rightaside',
   templateUrl: './faeth-rightaside.component.html'
 })
 export class FaethRightAsideComponent implements OnInit {
@@ -10,6 +10,7 @@ export class FaethRightAsideComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    console.log('implement')
   }
 
 }

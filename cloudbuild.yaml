@@ -1,10 +1,11 @@
 steps:
-- name: node
-  entrypoint: npm
-  args: ['install']
-- name: node
-  entrypoint: npm
-  args: ['run', 'build:prod']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/thesacredorder', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us.gcr.io/$PROJECT_ID/thesacredorder']
+  images: ['us.gcr.io/$PROJECT_ID/faethflex']
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["builds", "submit"]
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
 timeout: "1600s"

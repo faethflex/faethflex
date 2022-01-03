@@ -11,6 +11,7 @@ export class FaethFooterComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    console.log('implement')
   }
 
 }
