@@ -7,7 +7,7 @@ import { FaethHeaderComponent } from './components/faeth-header/faeth-header.com
 import { FaethLeftAsideComponent } from './components/faeth-leftaside/faeth-leftaside.component';
 import { FaethRightAsideComponent } from './components/faeth-rightaside/faeth-rightaside.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
+import { RightContentModule } from './modules/right-content/right-content.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,12 @@ import { RouterModule } from '@angular/router';
     FaethFooterComponent,
     FaethHeaderComponent,
     FaethLeftAsideComponent,
-    FaethRightAsideComponent
+    FaethRightAsideComponent,
   ],
   imports: [
-    RouterModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RightContentModule
   ],
   providers: [],
   bootstrap: [

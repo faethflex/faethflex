@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'faeth-rightaside',
@@ -6,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaethRightAsideComponent implements OnInit {
 
-  public constructor() {
-  }
+  public constructor(private router: Router) { }
+
 
   public ngOnInit(): void {
-    console.log('implement')
+    console.log('implement right side')
   }
-
 }
