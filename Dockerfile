@@ -3,20 +3,20 @@ FROM node:14.18.2-alpine as build-step
 
 # Installs latest Chromium package.
 RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
-    && echo @edge http://dl-cdn.alpinelinux.org/alpine/v3.10/main >> /etc/apk/repositories \
-    && apk add --no-cache \
-    chromium \
-    harfbuzz@edge \
-    nss@edge \
-    freetype@edge \
-    ttf-freefont@edge \
-    && rm -rf /var/cache/* \
-    && mkdir /var/cache/apk
+  && echo @edge http://dl-cdn.alpinelinux.org/alpine/v3.10/main >> /etc/apk/repositories \
+  && apk add --no-cache \
+  chromium \
+  harfbuzz@edge \
+  nss@edge \
+  freetype@edge \
+  ttf-freefont@edge \
+  && rm -rf /var/cache/* \
+  && mkdir /var/cache/apk
 
 # Add Chrome as a user
 RUN mkdir -p /usr/src/app \
-    && adduser -D chrome \
-    && chown -R chrome:chrome /usr/src/app
+  && adduser -D chrome \
+  && chown -R chrome:chrome /usr/src/app
 
 # Add Enviornment varaible for test
 ENV CHROME_BIN=/usr/bin/chromium-browser
@@ -34,9 +34,10 @@ RUN npm install
 COPY . .
 
 # Now that / is in the /app working directory, we can build the Angular app and then run test
-RUN npm run build:prod &&\
+RUN npm run lint &&\
   npm run test:docker &&\
-  npm run lint
+  npm run build:prod
+
 
 # Setup web server
 FROM nginx:1.21.5-alpine as prod-stage
