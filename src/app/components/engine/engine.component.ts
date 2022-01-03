@@ -37,11 +37,5 @@ export class EngineComponent implements OnInit, AfterViewInit, OnDestroy {
       this.m = m;
       this.aniServ.rotateGLTF360(this.engineScene, this.m)
     });
-    // window.addEventListener('resize', ($event) => {
-    //   //console.log($event);
-    //   // this.aniServ.resizeGLTF(this.engineScene, this.m)
-    //   this.ngAfterViewInit();
-    // });
-
   }
 }
