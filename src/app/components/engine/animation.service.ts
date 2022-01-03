@@ -5,6 +5,8 @@ import * as THREE from 'three';
 import { Texture } from 'three';
 import { GenericScene } from '../shared/generic-scene.class';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+
 
 @Injectable({ providedIn: 'root' })
 export class AnimationService {
@@ -74,12 +76,49 @@ export class AnimationService {
   public resize(scene: GenericScene): void {
     const width = window.innerWidth;
     const height = window.innerHeight;
+    console.log(width, height)
 
     scene.camera.aspect = width / height;
     scene.camera.updateProjectionMatrix();
 
     scene.renderer.setSize(width, height);
+
   }
+
+  public resizeGLTF(scene: GenericScene, gltf: GLTF): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    console.log(width, height)
+
+    // scene.camera.aspect = width / height;
+
+    // gltf.scene.scale.set(.5, .5, -10);
+    // // gltf.scene.scale.
+
+    // gltf.scene.updateMatrix();
+
+    scene.camera.aspect = width / height;
+    scene.camera.updateProjectionMatrix();
+    // gltf.scene.
+    // scene.camera.updateProjectionMatrix();
+
+    scene.renderer.setSize(width, height);
+    var bbox = new THREE.Box3().setFromObject(gltf.scene);
+    var cent = bbox.getCenter(new THREE.Vector3());
+    var size = bbox.getSize(new THREE.Vector3());
+    console.log(size, cent)
+
+    //Rescale the object to normalized space
+    var maxAxis = Math.max(size.x, size.y, size.z);
+    gltf.scene.scale.multiplyScalar(2.0 / maxAxis);
+    bbox.setFromObject(gltf.scene);
+    bbox.getCenter(cent);
+    bbox.getSize(size);
+    //Reposition to 0,halfY,0
+    gltf.scene.position.copy(cent).multiplyScalar(-1);
+    gltf.scene.position.y -= (size.y * 0.5);
+  }
+
 
   public addImageToScene(scene: GenericScene, path: string, geometry: THREE.BufferGeometry, mesh: THREE.Mesh, $imageLoaded: Subject<any>): void {
     const width = window.innerWidth;
@@ -124,20 +163,47 @@ export class AnimationService {
     scene.light.position.z = 10;
     scene.scene.add(scene.light);
 
-    const loader = new GLTFLoader();
     const manager = new THREE.LoadingManager();
     manager.onLoad = () => {
       scene.renderer.render(scene.scene, scene.camera);
-      loader.load(path, function (gltf) {
 
-        $modelLoaded.next(gltf);
-        scene.scene.add(gltf.scene);
-
-      }, undefined, function (error) {
-
-        console.error(error);
-
-      });
     };
+
+    const loader = new GLTFLoader(manager);
+    loader.load(path, (gltf) => {
+
+      scene.scene.add(gltf.scene);
+      $modelLoaded.next(gltf);
+      //console.log(gltf)
+      //this.rotateGLTF360(scene, gltf);
+
+    });
+    console.log(loader)
+
+  }
+
+  public rotateGLTF360(scene: GenericScene, gltf: GLTF): void {
+    scene.frameId = requestAnimationFrame(() => {
+      this.rotateGLTF360(scene, gltf);
+    });
+    gltf.scene.rotation.x += 0.01;
+    gltf.scene.rotation.y += 0.01;
+    scene.renderer.render(scene.scene, scene.camera);
+    //   export interface GLTF {
+    //     animations: AnimationClip[];
+    //     scene: Group;
+    //     scenes: Group[];
+    //     cameras: Camera[];
+    //     asset: {
+    //         copyright?: string;
+    //         generator?: string;
+    //         version?: string;
+    //         minVersion?: string;
+    //         extensions?: any;
+    //         extras?: any;
+    //     };
+    //     parser: GLTFParser;
+    //     userData: any;
+    // }
   }
 }

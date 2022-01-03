@@ -28,8 +28,8 @@ export class FaethLeftAsideComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   public ngAfterViewInit(): void {
-    this.leftAsideScene = new GenericScene(this.leftAsideCanvas, this.leftAsideWrapper);
-    this.aniServ.addImageToScene(this.leftAsideScene, '../assets/tso-logo-64x77.png', this.tsoGeometry, this.mesh, this.$ImageLoaded);
+    // this.leftAsideScene = new GenericScene(this.leftAsideCanvas, this.leftAsideWrapper);
+    // this.aniServ.addImageToScene(this.leftAsideScene, '../assets/tso-logo-64x77.png', this.tsoGeometry, this.mesh, this.$ImageLoaded);
   }
 
 
