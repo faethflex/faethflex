@@ -38,9 +38,11 @@ RUN npm run lint &&\
   npm run test:docker &&\
   npm run build:prod
 
-
 # Setup web server
 FROM nginx:1.21.5-alpine as prod-stage
+
+# Set up privleges for user account
+RUN chown -R nginx .
 
 # Adding a reference to the PORT environment variable
 ARG PORT
