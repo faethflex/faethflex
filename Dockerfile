@@ -42,13 +42,7 @@ RUN npm run lint &&\
 FROM nginx:1.21.5-alpine as prod-stage
 
 # Set up privleges for user account
-RUN chown -R nginx .
-
-# Adding a reference to the PORT environment variable
-ARG PORT
-
-# View PORT environment variable
-RUN echo $PORT
+RUN chown -R nginx /etc/nginx/conf.d/default.conf
 
 # Copy the dist folder that was built by ng build and place it into the html folder our the nginx server, since thats where the default html for nginx lives
 COPY --from=build-step /app/dist /usr/share/nginx/html
