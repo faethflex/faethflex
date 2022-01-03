@@ -125,7 +125,7 @@ export class AnimationService {
     const height = window.innerHeight;
 
     scene.camera = new THREE.PerspectiveCamera(
-      75, width / height, 0.1, 1000
+      90, width / height, 0.1, 1000
     );
     scene.camera.position.z = 5;
     scene.scene.add(scene.camera);

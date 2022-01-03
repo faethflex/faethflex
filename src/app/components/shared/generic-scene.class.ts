@@ -19,10 +19,19 @@ export class GenericScene {
 
         this.renderer = new THREE.WebGLRenderer({
             canvas: this.canvas,
-            alpha: true,    // transparent background
+            alpha: true, // transparent background
             antialias: true // smooth edges
         });
         this.renderer.setSize(elementWrapper.nativeElement.offsetWidth, elementWrapper.nativeElement.offsetHeight);
+        window.addEventListener('resize', ($event: Event) => {
+            console.log($event);
+            const temp = $event.target as Window;
+            this.canvas.height = temp.innerHeight;
+            this.canvas.width = temp.innerWidth;
+            this.renderer.setSize(temp.innerWidth, temp.innerHeight);
+            //   // this.aniServ.resizeGLTF(this.engineScene, this.m)
+            //   this.ngAfterViewInit();
+        });
     }
 
     public onDestroy(): void {
