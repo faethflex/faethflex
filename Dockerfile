@@ -42,11 +42,17 @@ RUN npm run lint &&\
 # Setup web server
 FROM nginx:1.21.5-alpine as prod-stage
 
+# Adding a reference to the PORT environment variable
+ARG PORT
+
+# View PORT environment variable
+RUN echo $PORT
+
 # Copy the dist folder that was built by ng build and place it into the html folder our the nginx server, since thats where the default html for nginx lives
 COPY --from=build-step /app/dist /usr/share/nginx/html
 
-# Expose a port so we can interact with the app (Port 80 is exposed by default, being verbose here)
-EXPOSE 80
-
 # Need to run some commands so it runs when the image is ran
-CMD ["nginx", "-g", "daemon off;"]
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Command to edit the port property in the nginx config and run the server
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
