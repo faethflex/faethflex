@@ -1,5 +1,5 @@
 # Base Image
-FROM node:16.13.1-alpine as build-step
+FROM node:14.18.2-alpine as build-step
 
 # Installs latest Chromium package.
 RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
