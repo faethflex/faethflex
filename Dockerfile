@@ -36,7 +36,6 @@ COPY . .
 
 # Now that / is in the /app working directory, we can build the Angular app and then run test
 RUN npm run lint &&\
-  npm run test:docker &&\
   npm run build:prod
 
 # Setup web server
