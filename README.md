@@ -7,7 +7,7 @@ I just figured out this feature and now I'm flexing it.
 - 🤔 I’m looking for help with passing CKA exam
 - 💬 Ask me about frank
 - 📫 How to reach me: greg@faethflex.com, file transfers through wetransfer only
-- 😄 Pronouns: Hi/Him/His
+- 😄 Pronouns: He/Him/His
 - ⚡ Fun fact: I worked at Apple
 
 <!--
