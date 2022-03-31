@@ -1,6 +1,15 @@
 ### Hi there 👋
 I just figured out this feature and now I'm flexing it.
 
+- 🔭 I’m currently working on CKA certification
+- 🌱 I’m currently learning certified kubernetes administration and ML
+- 👯 I’m looking to collaborate on AAA quality games as an SRE
+- 🤔 I’m looking for help with passing CKA exam
+- 💬 Ask me about frank
+- 📫 How to reach me: greg@faethflex.com, file transfers through wetransfer only
+- 😄 Pronouns: Hi/Him/His
+- ⚡ Fun fact: I worked at Apple
+
 <!--
 **faethflex/faethflex** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
