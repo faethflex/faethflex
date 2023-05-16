@@ -1,14 +1,14 @@
 ### Hi there 👋
-I just figured out this feature and now I'm flexing it.
+## I just figured out this feature and now I'm flexing it.
 
-- 🔭 I’m currently working on CKA certification
-- 🌱 I’m currently learning certified kubernetes administration and ML
-- 👯 I’m looking to collaborate on AAA quality games as an SRE
-- 🤔 I’m looking for help with passing CKA exam
-- 💬 Ask me about frank
+- 🔭 I’m currently working on Python ML projects in Jupyter & Anaconda, MLR for live sampling projects in Ableton, Gravity Sketch design projects, Beat Saber Mapping projects and more.
+- 🌱 I’m currently learning ML and 3D Art & Animation
+- 👯 I’m looking to collaborate on independent tech art projects.
+- 🤔 I’m looking for help with Topology in 3D modeling, character and hard surface.
+- 💬 Ask me about faethflex
 - 📫 How to reach me: greg@faethflex.com, file transfers through wetransfer only
 - 😄 Pronouns: He/Him/His
-- ⚡ Fun fact: I worked at Apple
+- ⚡ Fun fact: Apple Alumni
 
 <!--
 **faethflex/faethflex** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
