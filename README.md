@@ -1,5 +1,5 @@
 ### Hi there 👋
-## I just figured out this feature and now I'm flexing it.
+## Ever since I figured out this cool new feature I flexed it.
 
 - 🔭 I’m currently working on Python ML projects in Jupyter & Anaconda, MLR for live sampling projects in Ableton, Gravity Sketch design projects, Beat Saber Mapping projects and more.
 - 🌱 I’m currently learning ML and 3D Art & Animation
