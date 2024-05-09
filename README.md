@@ -1,4 +1,4 @@
-### Hi there 👋
+### Cheers, you've made it
 
 - 🔭 I’m currently applying the scientific method to digital information
 - 🌱 I’m currently learning how to write and read Assembly language and C++ with intuitive autonomy
