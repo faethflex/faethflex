@@ -5,6 +5,6 @@
 - ✨ I’m looking to collaborate on independently developed deep technology art projects
 - 💬 Ask me about the organization of Faethflex
 - 📫 How to reach me: greg@faethflex.com
-- 😄 Titles: Mr./Sir/Lord
+- 😄 Titles: Mr.(Mister)/Sir/Lord
 - ⚡ Fun fact: Apple Alumni
 
