@@ -15,4 +15,5 @@
 ## Mar
 ## Apr
 ## May
-05/12/24 - Added an annual monthly progress record and tested mobile commits 😎
+### 05/12/24
+- Added an annual monthly progress record and tested mobile commits 😎
