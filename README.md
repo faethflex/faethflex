@@ -8,7 +8,11 @@
 - 😄 Titles: Mr.(Mister)/Sir/Lord
 - ⚡ Fun fact: Apple Alumni
 
-# Monthly notes
+# 2024 Monthly Progress
 ----------------
+## Jan
+## Feb
+## Mar
+## Apr
 ## May
-05/12/24 - tested a mobile commit 😎
+05/12/24 - Added an annual monthly progress record and tested mobile commits 😎
