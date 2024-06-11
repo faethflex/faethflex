@@ -16,8 +16,10 @@
 ## Apr
 ## May
 ### 05/12/24
-- Added an annual monthly progress record and tested mobile commits 😎
+- Added an annual monthly progress record and tested mobile commits.
 ### 05/15/24
-- Courtesy commit
+- Courtesy commit.
 ### 05/20/24
 - Completed my deep dive on UE containerization.
+### 06/10/24
+- Built the oculus-vr fork of Unreal Engine.
