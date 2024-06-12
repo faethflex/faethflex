@@ -24,3 +24,5 @@
 ## Jun
 ### 06/10/24
 - Built the oculus-vr fork of Unreal Engine.
+### 06/11/24
+- Day 1 Unreal Engine Meta Quest 3 Utilities/Application programming.
