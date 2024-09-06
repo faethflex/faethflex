@@ -1,11 +1,11 @@
-## Cheers, you've made it
+## Welcome, you've made it
 
 - 🔭 I’m currently applying the scientific method to digital information
 - 🌱 I’m currently programming with intuitive autonomy
-- ✨ I’m looking to independently collaborate on independently developed deep technology art projects
+- ✨ I’m independently developing deep technology art projects
 - 💬 Ask me about the organization of Faethflex
 - 📫 How to reach me: greg@faethflex.com
-- 😄 Titles: Mr.(Mister)/Sir/Lord
+- 😄 Titles: Mister/Sir/Lord
 - ⚡ Fun fact: Apple Alumni
 
 # 2024 Monthly Progress
